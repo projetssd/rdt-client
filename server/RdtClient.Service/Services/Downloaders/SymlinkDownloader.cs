@@ -32,7 +32,11 @@ public class SymlinkDownloader : IDownloader
         var fileName = filePath.Name;
         var fileExtension = filePath.Extension;
         var fileDirectory = Path.GetFileName(Path.GetDirectoryName(filePath.FullName));
-﻿        string[] folders ={ fileName, fileDirectory };
+        
+        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+        var fileDirectoryWithoutExtension = Path.GetFileNameWithoutExtension(fileDirectory);
+
+        string[] folders = { fileNameWithoutExtension, fileDirectoryWithoutExtension, fileName, fileDirectory };
          
         List<string> unWantedExtensions = new()
         {
