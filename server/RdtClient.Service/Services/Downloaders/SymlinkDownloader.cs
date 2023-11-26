@@ -32,13 +32,8 @@ public class SymlinkDownloader : IDownloader
         var fileName = filePath.Name;
         var fileExtension = filePath.Extension;
         var fileDirectory = Path.GetFileName(Path.GetDirectoryName(filePath.FullName));
-
-        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
-        var fileDirectoryWithoutExtension = Path.GetFileNameWithoutExtension(fileDirectory);
-
-        string[] folders = { fileNameWithoutExtension, fileDirectoryWithoutExtension, fileName, fileDirectory };
-
-
+﻿        string[] folders ={ fileName, fileDirectory };
+         
         List<string> unWantedExtensions = new()
         {
             "zip", "rar", "tar"
