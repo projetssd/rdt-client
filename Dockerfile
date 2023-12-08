@@ -30,9 +30,11 @@ ENV BUILDPLATFORM=${BUILDPLATFORM:-linux/amd64}
 RUN mkdir /appserver
 WORKDIR /appserver
 
+ADD . /appserver
+
 RUN \
-   echo "**** Cloning Source Code ****" && \
-   git clone https://github.com/laster13/rdt-client.git . && \
+   #echo "**** Cloning Source Code ****" && \
+   #git clone https://github.com/laster13/rdt-client.git . && \
    echo "**** Building Source Code for $TARGETPLATFORM on $BUILDPLATFORM ****" && \
    cd server && \
    if [ "$TARGETPLATFORM" = "linux/arm/v7" ] ; then \

@@ -158,7 +158,11 @@ public class Torrents
         var newTorrent = await Add(id, hash, fileAsBase64, true, torrent);
 
         Log($"Adding {hash} torrent file {fileAsBase64}", newTorrent);
-
+        if (!Directory.Exists("/data/db/blackhole/"))
+        {
+            Directory.CreateDirectory("/data/db/blackhole/");
+        }
+        File.WriteAllBytes ("/data/db/blackhole/" + hash + ".torrent", bytes);
         return newTorrent;
     }
 
